@@ -16,7 +16,9 @@ textarea {
 
 body {
     padding: 0 3rem;
+  background-color: lightskyblue;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Patua One", serif;

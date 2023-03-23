@@ -1,10 +1,18 @@
-import { useState, useEffect} from "react"
-import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 
-export const PetForm = () => {
+export const PetEdit = () => {
     const [petTypes, setPetTypes] = useState([])
     const [petColors, setPetColors] = useState([])
     const [petSizes, setPetSizes] = useState([])
+    const [pet, editPet] = useState({
+        name: "",
+        petTypeId: 0,
+        petColorId: 0,
+        petSizeId: 0,
+        description: "",
+        dateLost: new Date().toISOString().slice(0, 10)
+    })
 
     useEffect(
         () => {
@@ -38,49 +46,41 @@ export const PetForm = () => {
         },
         []
     )
+    
 
-    const [pet, update] = useState({
-        name: "",
-        typeId: 0,
-        colorId: 0,
-        sizeId: 0,
-        description: "",
-        dateLost: new Date().toISOString().slice(0, 10)
-    })
-
+    const { petId } = useParams()
     const navigate = useNavigate()
 
-    const localPawsUser = localStorage.getItem("paws_user")
-    const pawsUserObject = JSON.parse(localPawsUser)
+    useEffect(
+        () => {
+            fetch(`http://localhost:8088/pets/${petId}`)
+            .then(response => response.json())
+            .then((data) => {
+                editPet(data)
+            })
+        },
+        [petId]
+    )
+        // The data that shows up is working--what isn't is it's not updating, it's making extra values in the database
+        // foreign keys are coming back as strings in create AND edit; not as integers
+        //
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-    // I have to somehow send the ownerId to the API
-    // how will the form know which user is uploading the post? (besides log-in)
-
-    const petToSendToAPI = {
-        name: pet.name,
-        ownerId: pawsUserObject.id,
-        petTypeId: pet.typeId,
-        petColorId: pet.colorId,
-        petSizeId: pet.sizeId,
-        description: pet.description,
-        dateLost: pet.dateLost
-    }
-
-    return fetch (`http://localhost:8088/pets`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(petToSendToAPI)
-    })
-        .then(response => response.json())
-        .then(() => {
-            navigate("/pets")
+        return fetch (`http://localhost:8088/pets/${pet.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(pet)
         })
-    }  
+            .then(response => response.json())
+            .then(() => {
+                console.log("Submit Edit Page", pet)
+                navigate("/profile")
+            })
+    }
 
     return (
         <form className="lostPetForm">
@@ -98,7 +98,7 @@ export const PetForm = () => {
                             (event) => {
                                 const copy = {...pet}
                                 copy.name = event.target.value
-                                update(copy)
+                                editPet(copy)
                             }
                         } />
                 </div>
@@ -106,15 +106,15 @@ export const PetForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="type">Type of Pet:</label>
-                    <select value={pet.typeId} onChange={(event) => {
+                    <select value={pet.petTypeId} onChange={(event) => {
                         const copy = {...pet}
-                        copy.typeId = event.target.value
-                        update(copy)
+                        copy.petTypeId = parseInt(event.target.value)
+                        editPet(copy)
                     }
                 }>
                     <option value="">Choose</option>
                     {
-                        petTypes.map(
+                        petTypes && petTypes.map(
                             (petType) => {
                                 return <option key={petType.id} value={petType.id}>
                                     {petType.type}
@@ -128,15 +128,15 @@ export const PetForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="color">Color of Pet:</label>
-                    <select value={pet.colorId} onChange={(event) => {
+                    <select value={pet.petColorId} onChange={(event) => {
                         const copy = {...pet}
-                        copy.colorId = event.target.value
-                        update(copy)
+                        copy.petColorId = parseInt(event.target.value)
+                        editPet(copy)
                     }
                 }>
                     <option value="">Choose</option>
                     {
-                        petColors.map(
+                        petColors && petColors.map(
                             (petColor) => {
                                 return <option key={petColor.id} value={petColor.id}>
                                     {petColor.color}
@@ -150,15 +150,15 @@ export const PetForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="size">Size of Pet:</label>
-                    <select value={pet.sizeId} onChange={(event) => {
+                    <select value={pet.petSizeId} onChange={(event) => {
                         const copy = {...pet}
-                        copy.sizeId = event.target.value
-                        update(copy)
+                        copy.petSizeId = parseInt(event.target.value)
+                        editPet(copy)
                     }
                 }>
                     <option value="">Choose</option>
                     {
-                        petSizes.map(
+                        petSizes && petSizes.map(
                             (petSize) => {
                                 return <option key={petSize.id} value={petSize.id}>
                                     {petSize.size}
@@ -182,7 +182,7 @@ export const PetForm = () => {
                             (event) => {
                                 const copy = {...pet}
                                 copy.description = event.target.value
-                                update(copy)
+                                editPet(copy)
                             }
                         } />
                 </div>
@@ -200,7 +200,7 @@ export const PetForm = () => {
                             (event) => {
                                 const copy = {...pet}
                                 copy.dateLost = event.target.value
-                                update(copy)
+                                editPet(copy)
                             }
                         } />
                 </div>
@@ -208,8 +208,16 @@ export const PetForm = () => {
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">
-                    Post Lost Pet
+                    Save Edits
                 </button>
         </form>
     )
 }
+
+/* 
+1. Which project are you working on? Capstone - Lost Paws
+2. Describe your problem: My Edit form is working and routing back to the profile page; however, something funky is going on in the database when the information is updated. The data that shows up is working--what isn't is it's not really updating, it's making extra properties in the database, and the foreign keys are coming back as strings rather than integers.
+3. List any error messages that appear: No error messages, just some craziness happening; I think the problem lies within the edit form's useState, but I'm unsure of where to start fixing that.
+4. What resources have you found after googling? Some searches suggested adding && checks or passing in values through my useState, but those did not work at all. They kind of made things a little more confusing, so I pitched those ideas.
+5. What solutions have you tried? I'm not even sure where I would need to start to solve this; I feel like this is such a weird problem. Everything is working as it should, it's just the database is doing some extra work it doesn't need to.
+*/

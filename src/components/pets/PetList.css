@@ -4,8 +4,8 @@
 }
 
 .pet {
-    background-color: rgb(245, 191, 227);
-    border: 1px dotted rgb(240, 36, 148);
+    background-color: rgb(185, 238, 203);
+    border: 1px rgb(36, 56, 240);
     padding: 1rem;
     margin: 0.5rem
 }

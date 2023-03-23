@@ -1,7 +1,8 @@
 import {Outlet, Route, Routes} from "react-router-dom"
-import { PetList } from "../pets/PetList"
 import { PetForm } from "../pets/PetForm"
 import { Profile } from "../profile/Profile"
+import { PetEdit } from "../pets/PetEdit"
+import { PetContainer } from "../pets/PetContainer"
 
 export const ApplicationViews = () => {
 	return (
@@ -14,11 +15,14 @@ export const ApplicationViews = () => {
 			<Outlet />
 		</>
 	}>
-		<Route path="pets" element={ <PetList /> } />
+		<Route path="pets" element={ <PetContainer />
+	} />
 
 		<Route path="pets/create" element={ <PetForm /> } />
 
 		<Route path="profile" element={ <Profile /> } />
+
+		<Route path="pets/:petId/edit" element={ <PetEdit /> } />
 
 		</Route>
 	</Routes>

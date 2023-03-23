@@ -3,7 +3,6 @@ import { Pet } from "../pets/Pets"
 
 export const Profile = () => {
     const [pets, setPets]= useState([])
-    // const [owner, setOwner] = useState([])
     const [filteredPets, setFiltered] = useState([])
 
     const localPawsUser = localStorage.getItem("paws_user")
@@ -44,6 +43,7 @@ export const Profile = () => {
                     />
                 )
             }
+            
         </article>
     </>
 }

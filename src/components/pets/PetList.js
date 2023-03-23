@@ -1,15 +1,21 @@
 import { useEffect, useState} from "react"
 import { useNavigate } from "react-router-dom"
 import { Pet } from "./Pets"
-import "./PetList.css"
+import "./Pets.css"
 
-export const PetList = () => {
+export const PetList = ({ searchPetState }) => {
     const [pets, setPets] = useState([])
+    const [filteredPets, setFiltered] = useState([])
 
     const navigate = useNavigate()
 
-    const localPawsUser = localStorage.getItem("paws_user")
-    const pawsUserObject = JSON.parse(localPawsUser)
+    useEffect(
+        () => {
+            const searchedPets = pets.filter(pet => pet.name.toLowerCase().startsWith(searchPetState.toLowerCase()))
+            setFiltered(searchedPets)
+        },
+        [searchPetState]
+    )
 
     useEffect(
         () => {
@@ -31,7 +37,7 @@ export const PetList = () => {
 
         <article className="pets">
         {
-            pets.map(
+            filteredPets.map(
                 (pet) => 
                 <Pet 
                     petObject={pet} 
