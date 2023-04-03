@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
-import "./NavBar.css"
+import lostPawsLogo from  "./lostPawsLogo.png"
+import "./NavBar.scss"
 
 // NavBar links for Lost Paws:
 // Homepage (takes you to the landing feed)
@@ -10,10 +11,12 @@ export const NavBar = () => {
 
     return (
         <ul className="navbar">
+            <img className="menu_logo" src={ lostPawsLogo } alt="example" />
+            <div className="nav_link_container">
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/pets">Homepage</Link>
+                <Link className="navbar__link" to="/">Homepage</Link>
             </li>
-            <li className="navbar__item navbar__logout">
+            <li className="navbar__item">
                 <Link className="navbar__link" to="/profile">Profile</Link>
             </li>
             {
@@ -26,6 +29,7 @@ export const NavBar = () => {
                     </li>
                     : ""
             }
+            </div>
         </ul>
     )
 }

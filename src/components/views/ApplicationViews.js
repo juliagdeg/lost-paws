@@ -7,15 +7,14 @@ import { PetContainer } from "../pets/PetContainer"
 export const ApplicationViews = () => {
 	return (
 	<Routes>
-		<Route path="/" element={
+			<Route path="/" element={
 			<>
-			<h1 className="title--main">Lost Paws</h1>
-			<div>Helping some lost paws find their way back home.</div>
-
+			<div className="home_phrase">There's no such thing as a lost cause with Lost Paws!</div>
+		
 			<Outlet />
 		</>
 	}>
-		<Route path="pets" element={ <PetContainer />
+		<Route path="/" element={ <PetContainer />
 	} />
 
 		<Route path="pets/create" element={ <PetForm /> } />

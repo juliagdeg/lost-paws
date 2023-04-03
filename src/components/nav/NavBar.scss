@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+
+:root {
+    --teal: #38A3A5; /* define a CSS variable */
+    --darkblue: #22577A; 
+    --chartruce: #57CC99;
+    --happygreen: #80ED99;
+    --palegreen: #C7F9CC; 
+    --Lilita: 'https://fonts.googleapis.com/css2?family=Lilita+One&display=swap'
+  }
+
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: var(--palegreen);
+    width: 100%;
+    margin: 0px;
+    border-bottom: 3px var(--darkblue) solid;
+    box-shadow: 0px 0px 5px var(--darkblue);
+}
+
+.menu_logo {
+    width: 250px
+}
+
+.nav_link_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+    padding: 0px 15px ;
+    margin-top: 35px;
+    margin-left: 75px;
+}
+
+.navbar__link {
+    text-decoration: none;
+    font-size: 200%;
+    font-family: Lilita One, cursive;
+    color: #22577A
+}
+
+.navbar__item {
+    list-style-type: none;
+}
+
+/* ----------LINK HOVER EFFECT---------- */
+
+.navbar__link {
+	text-decoration: none;
+	transition: .25s ease;
+}
+
+.navbar {
+	display: flex;
+	flex-wrap: wrap;
+	
+	.navbar__item {
+		margin-left: .75em;
+		margin-right: .75em;
+	}
+	
+	&:hover {
+		a {
+			color: var(--darkblue);
+			&:hover {
+				color: var(--happygreen);
+				box-shadow: 0 2px 0 0 currentcolor;
+			}
+		}
+	}
+}
+

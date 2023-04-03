@@ -1,9 +1,11 @@
 .h1, h1 {
     font-size: 2.5rem;
+    text-align: center;
 }
 
 fieldset {
     min-width: 0;
+    align-items: center;
     padding: 1rem 0;
     margin: 0;
     border: 0;
@@ -12,11 +14,12 @@ fieldset {
 .form--login {
     display: inline-block;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
 }
 
 .form--login > fieldset > input[type="email"] {
     width: 25em;
+    
 }
 
 .label--login {
@@ -26,8 +29,10 @@ fieldset {
 
 .form-control {
     display: block;
-    width: 94%;
+    /* width: 94%; */
     height: calc(1.5em + .75rem + 2px);
+    /* align-items: center; */
+    /* justify-content: center; */
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -60,3 +65,7 @@ fieldset {
     bottom: -2rem;
 }
 
+.login_logo {
+ width: 250px;
+
+}

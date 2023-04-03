@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { UploadWidget } from "../UploadWidget"
 
 export const PetEdit = () => {
     const [petTypes, setPetTypes] = useState([])
@@ -11,8 +12,14 @@ export const PetEdit = () => {
         petColorId: 0,
         petSizeId: 0,
         description: "",
-        dateLost: new Date().toISOString().slice(0, 10)
+        dateLost: new Date().toISOString().slice(0, 10),
+        publicId: ""
     })
+
+    const localPawsUser = localStorage.getItem("paws_user")
+    const pawsUserObject = JSON.parse(localPawsUser)
+
+    const [newImage, setNewImage] = useState("")
 
     useEffect(
         () => {
@@ -51,6 +58,8 @@ export const PetEdit = () => {
     const { petId } = useParams()
     const navigate = useNavigate()
 
+
+
     useEffect(
         () => {
             fetch(`http://localhost:8088/pets/${petId}`)
@@ -61,19 +70,29 @@ export const PetEdit = () => {
         },
         [petId]
     )
-        // The data that shows up is working--what isn't is it's not updating, it's making extra values in the database
-        // foreign keys are coming back as strings in create AND edit; not as integers
-        //
-
+        // do i need to define a new useEffect that edits the pet image for cloudinary?
+        // cloudinary "overwrite" preset boolean ... reading thru documentation and how to implement
+        // might need to save the new value in a handleSaveImage but that seems...redundant
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
+
+        const petToSendToAPI = {
+            name: pet.name,
+            ownerId: pawsUserObject.id,
+            petTypeId: pet.petTypeId,
+            petColorId: pet.petColorId,
+            petSizeId: pet.petSizeId,
+            description: pet.description,
+            dateLost: pet.dateLost,
+            publicId: newImage
+        }
 
         return fetch (`http://localhost:8088/pets/${pet.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(pet)
+            body: JSON.stringify(petToSendToAPI)
         })
             .then(response => response.json())
             .then(() => {
@@ -82,9 +101,21 @@ export const PetEdit = () => {
             })
     }
 
+    //need to fix Upload on edit form
+    // reading error 400 bad request
+    // using the same useState from PetForm did not work (as expected);
+    // might need to create a new dependency array? 
+
     return (
-        <form className="lostPetForm">
+        <div className="lostPetForm">
             <h2 className="lostPetForm_title">Lost Pet Post</h2>
+            <div>
+            <UploadWidget onUploadSuccess={
+                                (imageData) => {
+                                setNewImage(imageData)
+                            }}
+                            />
+            </div>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Pet Name:</label>
@@ -210,7 +241,7 @@ export const PetEdit = () => {
                 className="btn btn-primary">
                     Save Edits
                 </button>
-        </form>
+        </div>
     )
 }
 

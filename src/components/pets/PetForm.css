@@ -1,0 +1,14 @@
+.form_container {
+    padding-left: 50px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 25px
+}
+
+.form-group {
+    width: 50%
+}
+
+.lostPetForm_title {
+    padding-right: 25px;
+}

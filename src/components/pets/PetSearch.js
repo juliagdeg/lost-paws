@@ -1,6 +1,6 @@
 export const PetSearch = ({ setterFunction }) => {
     return (
-        <div>
+        <div className="search">
             <input 
                 onChange={
                     (changeEvent) => {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Pet } from "../pets/Pets"
+import "./Profile.css"
 
 export const Profile = () => {
     const [pets, setPets]= useState([])
@@ -29,9 +30,9 @@ export const Profile = () => {
 
     return <>
     
-    <h2>My Posts</h2>
+    <h2 className="profile_header">My Posts</h2>
 
-        <article className="profile">
+        <div className="profile_container">
             {
                 filteredPets.map(
                     (pet) => 
@@ -43,7 +44,6 @@ export const Profile = () => {
                     />
                 )
             }
-            
-        </article>
+        </div>
     </>
 }

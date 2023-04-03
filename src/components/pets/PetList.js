@@ -1,20 +1,23 @@
 import { useEffect, useState} from "react"
 import { useNavigate } from "react-router-dom"
-import { Pet } from "./Pets"
+import { PetContact } from "./PetContact"
 import "./Pets.css"
 
 export const PetList = ({ searchPetState }) => {
     const [pets, setPets] = useState([])
     const [filteredPets, setFiltered] = useState([])
-
+    // const [isLoading, setIsLoading] = useState(true)
     const navigate = useNavigate()
 
     useEffect(
         () => {
             const searchedPets = pets.filter(pet => pet.name.toLowerCase().startsWith(searchPetState.toLowerCase()))
             setFiltered(searchedPets)
+        //     // .then(() => {
+        //         setIsLoading(false)
+        //     })
         },
-        [searchPetState]
+        [pets, searchPetState]
     )
 
     useEffect(
@@ -27,19 +30,23 @@ export const PetList = ({ searchPetState }) => {
         },
         []
     )
-
+    console.log(pets)
+    console.log(filteredPets)
+    // if (isLoading) {
+    //     return <p>Loading...</p>
+    // }
 
     return <>
 
-        <button onClick={() => navigate("/pets/create")}>Post a Lost Pet</button>
+        <button className="top-bottom_button" onClick={() => navigate("/pets/create")}>Post a Lost Pet</button>
 
-    <h2>Lost pets</h2>
+    <h2 className="homepage_header">Current Lost Paws</h2>
 
         <article className="pets">
         {
             filteredPets.map(
                 (pet) => 
-                <Pet 
+                <PetContact
                     petObject={pet} 
                     owner={{}}
                 />

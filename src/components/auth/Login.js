@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
+import lostPawsLogo from  "../nav/lostPawsLogo.png"
 import "./Login.css"
 
 export const Login = () => {
@@ -32,10 +33,10 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Lost Paws</h1>
+                    <img className="login_logo" src={ lostPawsLogo } alt="example" />
                     <h2>Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                        <label htmlFor="inputEmail"> Enter your email address here! </label>
                         <input type="email"
                             value={email}
                             onChange={evt => set(evt.target.value)}

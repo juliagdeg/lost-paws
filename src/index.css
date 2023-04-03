@@ -1,4 +1,29 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* darkblue=22577A
+teal=38A3A5
+chartruce=#57CC99
+happygreen=#80ED99
+palegreen=#C7F9CC */
+
+/* buttoncss 
+button slide https://codepen.io/t_afif/pen/abKyJNJ
+rainbow button https://codepen.io/natszafraniec/pen/abYNbaJ
+cross button https://codepen.io/t_afif/pen/bGooZmq */
+
+/* cute font https://fonts.google.com/specimen/Lilita+One?preview.text=LOST%20PAWS&preview.text_type=custom */
+:root {
+  --teal: #38A3A5; /* define a CSS variable */
+  --darkblue: #22577A; 
+  --chartruce: #57CC99;
+  --happygreen: #80ED99;
+  --palegreen: #C7F9CC; 
+}
+
 body {
+  background-color: #faf7ee;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +35,86 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.left-right_button {
+  position: relative;
+  background-color: #C7F9CC;
+  border: 2px solid #22577A;
+  color: #22577A;
+  font-weight: bold;
+  padding: 10px 20px;
+  z-index: 1;
+}
+
+.left-right_button::before,
+.left-right_button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background-color: rgb(255, 172, 237);
+  transition: width 0.5s ease;
+  z-index: -1;
+}
+
+.left-right_button::before {
+  left: 0;
+}
+
+.left-right_button::after {
+  right: 0;
+}
+
+.left-right_button:hover::before {
+  width: 50%;
+}
+
+.left-right_button:hover::after {
+  width: 50%;
+}
+
+.top-bottom_button {
+  position: relative;
+  background-color: #C7F9CC;
+  border: 2px solid #22577A;
+  color: #22577A;
+  font-weight: bold;
+  margin: 1rem;
+  padding: 10px 20px;
+  z-index: 1;
+}
+
+.top-bottom_button::before,
+.top-bottom_button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  background-color: rgb(255, 172, 237);
+  transition: height 0.5s ease;
+  z-index: -1;
+}
+
+.top-bottom_button::before {
+  top: 0;
+}
+
+.top-bottom_button::after {
+  bottom: 0;
+}
+
+.top-bottom_button:hover::before {
+  height: 50%;
+}
+
+.top-bottom_button:hover::after {
+  height: 50%;
+}
+
+.button-pulldown {
+  /* position: absolute; */
+ margin-bottom: 0;
 }

@@ -1,0 +1,10 @@
+.profile_header {
+    margin-left: 10px
+}
+
+.profile_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}

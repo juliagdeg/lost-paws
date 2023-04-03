@@ -1,5 +1,7 @@
 import { useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom"
+import { UploadWidget } from "../UploadWidget"
+import "./PetForm.css"
 
 export const PetForm = () => {
     const [petTypes, setPetTypes] = useState([])
@@ -41,23 +43,26 @@ export const PetForm = () => {
 
     const [pet, update] = useState({
         name: "",
-        typeId: 0,
+        typeId: 1,
         colorId: 0,
         sizeId: 0,
         description: "",
-        dateLost: new Date().toISOString().slice(0, 10)
+        dateLost: new Date().toISOString().slice(0, 10),
+        publicId: ""
     })
 
-    const navigate = useNavigate()
+    const [image, setImage] = useState("")
 
+    const navigate = useNavigate()
+    
     const localPawsUser = localStorage.getItem("paws_user")
     const pawsUserObject = JSON.parse(localPawsUser)
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-    // I have to somehow send the ownerId to the API
-    // how will the form know which user is uploading the post? (besides log-in)
+    // Do I have to use a new property that renders the image info in my API data?
+    // create publicId property for petdataAPI
 
     const petToSendToAPI = {
         name: pet.name,
@@ -66,9 +71,10 @@ export const PetForm = () => {
         petColorId: pet.colorId,
         petSizeId: pet.sizeId,
         description: pet.description,
-        dateLost: pet.dateLost
+        dateLost: pet.dateLost,
+        publicId: image
     }
-
+    // console.log(petToSendToAPI)
     return fetch (`http://localhost:8088/pets`, {
         method: "POST",
         headers: {
@@ -78,13 +84,21 @@ export const PetForm = () => {
     })
         .then(response => response.json())
         .then(() => {
-            navigate("/pets")
+            navigate("/")
         })
-    }  
+    }
+
 
     return (
-        <form className="lostPetForm">
+        <div className="form_container">
             <h2 className="lostPetForm_title">Lost Pet Post</h2>
+            <div>
+                <UploadWidget onUploadSuccess={
+                                (imageData) => {
+                                setImage(imageData)
+                            }}
+                            />
+            </div>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Pet Name:</label>
@@ -175,7 +189,7 @@ export const PetForm = () => {
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        className="text_description"
                         placeholder="Type here..."
                         value={pet.description}
                         onChange={
@@ -205,11 +219,11 @@ export const PetForm = () => {
                         } />
                 </div>
             </fieldset>
-            <button
+            <button type="button"
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                className="top-bottom_button">
                     Post Lost Pet
                 </button>
-        </form>
+        </div>
     )
 }
