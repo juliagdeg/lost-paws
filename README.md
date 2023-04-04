@@ -18,10 +18,10 @@ HOW TO RUN
 
 TECHNOLOGY
 
-JS
-React
-CSS
-Cloudinary
+- JS
+- React
+- CSS
+- Cloudinary
 
 ERD
 
