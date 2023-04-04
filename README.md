@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+BACKGROUND
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+There’s no such thing as a lost cause with Lost Paws!
+ 
+This app is to allow pet owners to post and share information about their pets that may have gotten lost. My parents gave me the idea after we all spent a night seeing all the lost pet alerts on the Neighborhood app get drowned out by a lot of other miscellaneous alerts. 
 
-## Available Scripts
+Lost Paws centralizes the sharing of information so that users can track down their pets and hopefully find others as well.
 
-In the project directory, you can run:
 
-### `npm start`
+HOW TO RUN
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone this repo.
+2. Once cloned, cd into the directory that is created.
+3. cd into api folder, and run json-server -p 8088 -w database.json
+4. Open another terminal window and run a npm install to load all dependencies.
+5. Once is has finished installing, run npm start.
+6. Register and check out the rest of the app!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+TECHNOLOGY
 
-### `npm test`
+JS
+React
+CSS
+Cloudinary
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ERD
 
-### `npm run build`
+![image](https://user-images.githubusercontent.com/116612255/229681162-f63fd953-ff2c-4bb7-a050-5d09a26e453b.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+SUPPORT
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Please visit and follow the documentation found on Cloudinary for proper and helpful tips of widget implementation, cool features, how their media UI library works, and more here: (https://cloudinary.com/documentation/image_video_and_file_upload)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ACKNOWLEDGMENT
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+BIG thanks to my instructors and peers at NSS for helping me get to this point in my software development journey. Lost Paws is small but mighty, and it took a village to create it. 
