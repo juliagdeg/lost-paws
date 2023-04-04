@@ -92,6 +92,8 @@ export const PetForm = () => {
     return (
         <div className="form_container">
             <h2 className="lostPetForm_title">Lost Pet Post</h2>
+            <section>Please fill out this form, upload a pet pic, and be as descriptive as PAWS-sible. 
+            We'll make sure your Lost Paws are found in no time!</section>
             <div>
                 <UploadWidget onUploadSuccess={
                                 (imageData) => {
@@ -186,9 +188,9 @@ export const PetForm = () => {
             <fieldset>
             <div className="form-group">
                     <label htmlFor="description">Please list any additional details of your pet here:</label>
-                    <input
+                    <textarea
                         required autoFocus
-                        type="text"
+                        type="textarea"
                         className="text_description"
                         placeholder="Type here..."
                         value={pet.description}

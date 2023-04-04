@@ -10,6 +10,7 @@ export const PetContact = ( {petObject, owner, setPets} ) => {
     // const [showEmail, setShowEmail] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [userEmail, setUserEmail] = useState("");
+    const [text, setText] = useState("");
     
     useEffect(() => {
         fetch("http://localhost:8088/owners")
@@ -72,10 +73,11 @@ export const PetContact = ( {petObject, owner, setPets} ) => {
         for (const owner of owners) {
           if (owner.id === petOwnerId) {
             setUserEmail(owner.email);
+            setText(owner.email);
             break;
           }
         }
-      };
+    };
     
       const handleCloseModal = () => {
         setShowModal(false);
@@ -84,6 +86,10 @@ export const PetContact = ( {petObject, owner, setPets} ) => {
     // const handleClick = () => {
     //     setShowEmail(!showEmail); // toggle the value of showEmail
     //   };
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(text);
+      };
 
     const cld = new Cloudinary({
         cloud: {
@@ -109,7 +115,8 @@ export const PetContact = ( {petObject, owner, setPets} ) => {
           <div className="modal-overlay"></div>
           <div className="modal">
             <h3>{userEmail}</h3>
-            <p>Use this email to contact the owner about their Lost Paws!</p>
+            <button className="left-right_button" onClick={handleCopy}>Copy to clipboard</button>
+            <p className="contact_text">Use this email to contact the owner about their Lost Paws!</p>
             <button className="left-right_button" onClick={handleCloseModal}>Close</button>
           </div>
         </>

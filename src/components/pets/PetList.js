@@ -41,6 +41,7 @@ export const PetList = ({ searchPetState }) => {
         <button className="top-bottom_button" onClick={() => navigate("/pets/create")}>Post a Lost Pet</button>
 
     <h2 className="homepage_header">Current Lost Paws</h2>
+    <p className="homepage_caption">There's no such thing as a lost cause with Lost Paws!</p>
 
         <article className="pets">
         {

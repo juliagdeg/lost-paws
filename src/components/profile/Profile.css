@@ -1,5 +1,9 @@
 .profile_header {
-    margin-left: 10px
+    margin: 25px;
+    text-align: center;
+    font-family: Lilita One, cursive;
+    font-size: xx-large;
+    color: #22577A;
 }
 
 .profile_container {

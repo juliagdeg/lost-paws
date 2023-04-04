@@ -54,7 +54,7 @@ code {
   top: 0;
   bottom: 0;
   width: 0;
-  background-color: rgb(255, 172, 237);
+  background-color: rgb(255, 216, 247);
   transition: width 0.5s ease;
   z-index: -1;
 }

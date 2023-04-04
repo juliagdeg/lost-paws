@@ -12,7 +12,7 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <img className="menu_logo" src={ lostPawsLogo } alt="example" />
-            <div className="nav_link_container">
+        <div className="nav_link_container">
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">Homepage</Link>
             </li>

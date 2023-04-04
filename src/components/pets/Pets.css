@@ -64,6 +64,7 @@ h2 {
 
 .pet_header {
     font-family: Lilita One, cursive;
+    color: #1b4460;
     font-size: xx-large;
     text-align: center;
 }
@@ -91,7 +92,7 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(255, 172, 237);
+  background-color: rgb(255, 214, 246);
   border: 1px solid #ccc;
   padding: 5%;
   max-width: 400px;
@@ -104,16 +105,35 @@ h2 {
   margin-bottom: 20px;
 }
 
-.search {
+.pet_search {
     margin: 1rem;
+    width: 20%;
+    border-radius: 10px;
 }
 
-.post_button {
-    margin: 1rem;
-}
+/* .post_button {
+    margin: 10px;
+} */
 
 .post_footer {
   margin: auto;
   /* justify-content: space-around; */
   /* align-items: center; */
+}
+
+.homepage_header {
+  font-family: Lilita one, cursive;
+  font-size: 35px;
+  text-align: center;
+  color: #1b4460;
+}
+
+.homepage_caption {
+  text-align: center;
+  font-family: "Comfortaa", Arial, sans-serif;
+  font-size: 20px;
+}
+
+.contact_text {
+  font-family: "Comfortaa", Arial, sans-serif;
 }
