@@ -31,3 +31,21 @@ Please visit and follow the documentation found on Cloudinary for proper and hel
 ACKNOWLEDGMENT
 
 BIG thanks to my instructors and peers at NSS for helping me get to this point in my software development journey. Lost Paws is small but mighty, and it took a village to create it. 
+- JS
+- React
+- CSS
+- Cloudinary
+
+ERD
+
+![image](https://user-images.githubusercontent.com/116612255/229681162-f63fd953-ff2c-4bb7-a050-5d09a26e453b.png)
+
+
+SUPPORT
+
+Please visit and follow the documentation found on Cloudinary for proper and helpful tips of widget implementation, cool features, how their media UI library works, and more here: (https://cloudinary.com/documentation/image_video_and_file_upload)
+
+
+ACKNOWLEDGMENT
+
+BIG thanks to my instructors and peers at NSS for helping me get to this point in my software development journey. Lost Paws is small but mighty, and it took a village to create it. 
