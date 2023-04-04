@@ -12,12 +12,39 @@
     width: 50%;
 }
 
+.name_label {
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-weight: bold
+}
+
+.dropdown_label {
+    font-family: "Comfortaa", Arial, sans-serif;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
 .form-control {
     width: 100%
 }
 
 .lostPetForm_title {
     padding-right: 25px;
+    font-family: Lilita One, cursive;
+    color: #22577A;
+    text-align: center;
+}
+
+.pet_form_instructions {
+    text-align: center;
+    font-family: Lilita One, cursive;
+    color: #22577A;
+    padding-bottom: 10px;
+}
+
+.description_label {
+    font-family: "Comfortaa", Arial, sans-serif;
+    padding-right: 10px;
+    font-weight: bold;
 }
 
 .text_description {
@@ -27,4 +54,10 @@
     margin: 8px 0;
     box-sizing: border-box;
     resize: none;
+}
+
+.date_label {
+    font-family: "Comfortaa", Arial, sans-serif;
+    padding-right: 10px;
+    font-weight: bold;
 }

@@ -6,16 +6,12 @@ import "./Pets.css"
 export const PetList = ({ searchPetState }) => {
     const [pets, setPets] = useState([])
     const [filteredPets, setFiltered] = useState([])
-    // const [isLoading, setIsLoading] = useState(true)
     const navigate = useNavigate()
 
     useEffect(
         () => {
             const searchedPets = pets.filter(pet => pet.name.toLowerCase().startsWith(searchPetState.toLowerCase()))
             setFiltered(searchedPets)
-        //     // .then(() => {
-        //         setIsLoading(false)
-        //     })
         },
         [pets, searchPetState]
     )
@@ -30,11 +26,7 @@ export const PetList = ({ searchPetState }) => {
         },
         []
     )
-    console.log(pets)
-    console.log(filteredPets)
-    // if (isLoading) {
-    //     return <p>Loading...</p>
-    // }
+    
 
     return <>
 

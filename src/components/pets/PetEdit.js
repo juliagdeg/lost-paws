@@ -98,8 +98,9 @@ export const PetEdit = () => {
     }
 
     return (
-        <div className="lostPetForm">
+        <div className="form_container">
             <h2 className="lostPetForm_title">Lost Pet Post</h2>
+            <section className="pet_form_instructions">Have any updates? Using a new pet picture? No worries! Edit your post here.</section>
             <div>
             <UploadWidget onUploadSuccess={
                                 (imageData) => {
@@ -109,7 +110,7 @@ export const PetEdit = () => {
             </div>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Pet Name:</label>
+                    <label className="name_label" htmlFor="name">Pet Name:</label>
                     <input
                         required autoFocus
                         type="text"
@@ -127,7 +128,7 @@ export const PetEdit = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="type">Type of Pet:</label>
+                    <label className="dropdown_label" htmlFor="type">Type of Pet:</label>
                     <select value={pet.petTypeId} onChange={(event) => {
                         const copy = {...pet}
                         copy.petTypeId = parseInt(event.target.value)
@@ -149,7 +150,7 @@ export const PetEdit = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="color">Color of Pet:</label>
+                    <label className="dropdown_label" htmlFor="color">Color of Pet:</label>
                     <select value={pet.petColorId} onChange={(event) => {
                         const copy = {...pet}
                         copy.petColorId = parseInt(event.target.value)
@@ -171,7 +172,7 @@ export const PetEdit = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="size">Size of Pet:</label>
+                    <label className="dropdown_label" htmlFor="size">Size of Pet:</label>
                     <select value={pet.petSizeId} onChange={(event) => {
                         const copy = {...pet}
                         copy.petSizeId = parseInt(event.target.value)
@@ -193,11 +194,11 @@ export const PetEdit = () => {
             </fieldset>
             <fieldset>
             <div className="form-group">
-                    <label htmlFor="description">Please list any additional details of your pet here:</label>
+                    <label className="description_label" htmlFor="description">Please list any additional details of your pet here:</label>
                     <textarea
                         required autoFocus
-                        type="text"
-                        className="form-control"
+                        type="textarea"
+                        className="text_description"
                         placeholder="Type here..."
                         value={pet.description}
                         onChange={
@@ -211,7 +212,7 @@ export const PetEdit = () => {
             </fieldset>
             <fieldset>
             <div className="form-group">
-                    <label htmlFor="date">When was your pet lost/last seen?</label>
+                    <label className="date_label" htmlFor="date">When was your pet lost/last seen?</label>
                     <input
                         required autoFocus
                         type="date"
@@ -229,7 +230,7 @@ export const PetEdit = () => {
             </fieldset>
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                className="top-bottom_button">
                     Save Edits
                 </button>
         </div>

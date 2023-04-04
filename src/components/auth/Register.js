@@ -54,9 +54,9 @@ export const Register = (props) => {
     return (
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Lost Paws</h1>
+                <h1 className="h1">Let's find your Lost Paws!</h1>
                 <fieldset>
-                    <label htmlFor="fullName"> Full Name </label>
+                    <label className="full_name" htmlFor="fullName"> Full Name </label>
                     <input onChange={updateUser}
                            type="text" id="fullName" className="form-control"
                            placeholder="Enter your name" required autoFocus />

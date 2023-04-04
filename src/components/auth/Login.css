@@ -1,6 +1,18 @@
-.h1, h1 {
-    font-size: 2.5rem;
+.h1, h2 {
+    font-size: 2rem;
     text-align: center;
+    font-family: Lilita One, cursive;
+    color: #22577A
+}
+
+.full_name {
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-weight: bold;
+}
+
+.sign_in_label {
+    font-family: Lilita One, cursive;
+    color: #22577A;
 }
 
 fieldset {
@@ -29,6 +41,11 @@ fieldset {
     display: inline-block;
 }
 
+.email_instructions {
+    font-family: Lilita One, cursive;
+    color: #22577A;
+}
+
 .form-control {
     display: block;
     /* width: 94%; */
@@ -40,7 +57,7 @@ fieldset {
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
-    background-color: #fff;
+    background-color: #fcfafa;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;

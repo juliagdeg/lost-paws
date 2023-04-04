@@ -7,7 +7,6 @@ import "./Pets.css"
 
 export const PetContact = ( {petObject, owner, setPets} ) => {
     const [owners, setOwners] = useState([])
-    // const [showEmail, setShowEmail] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [userEmail, setUserEmail] = useState("");
     const [text, setText] = useState("");
@@ -20,19 +19,7 @@ export const PetContact = ( {petObject, owner, setPets} ) => {
           });
       }, []);
 
-    /* 
-    1. create useEffect to fetch owners
-    2. create function that matches petObject.ownerId === owner.id
-    3. on the onClick for contact, it should display email of that owner
-    */
 
-    // useEffect(
-    //     () => {
-    //        const userEmail = 
-    //     },
-    //     []
-    // )
-    
     const deleteButton = () => {
         if (petObject.ownerId === owner.id) {
             return <button onClick={() => {
@@ -64,7 +51,6 @@ export const PetContact = ( {petObject, owner, setPets} ) => {
         }
     }
 
-    // let userEmail = "";
 
     const handleOpenModal = () => {
         setShowModal(true);
@@ -82,10 +68,6 @@ export const PetContact = ( {petObject, owner, setPets} ) => {
       const handleCloseModal = () => {
         setShowModal(false);
       };
-
-    // const handleClick = () => {
-    //     setShowEmail(!showEmail); // toggle the value of showEmail
-    //   };
 
     const handleCopy = () => {
         navigator.clipboard.writeText(text);
@@ -121,7 +103,6 @@ export const PetContact = ( {petObject, owner, setPets} ) => {
           </div>
         </>
       )}
-            {/* {showEmail && <p>{email}</p>} */}
             <footer className="post_footer">
                 {
                     deleteButton()
@@ -129,9 +110,6 @@ export const PetContact = ( {petObject, owner, setPets} ) => {
                {
                     editButton()
                }
-               {/* <button>Found my Lost Paws?</button> */}
             </footer>
     </section>
     }
-
-    // need to place a conditional where contact only shows up on homepage posts

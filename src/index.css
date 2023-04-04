@@ -1,19 +1,3 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
-/* darkblue=22577A
-teal=38A3A5
-chartruce=#57CC99
-happygreen=#80ED99
-palegreen=#C7F9CC */
-
-/* buttoncss 
-button slide https://codepen.io/t_afif/pen/abKyJNJ
-rainbow button https://codepen.io/natszafraniec/pen/abYNbaJ
-cross button https://codepen.io/t_afif/pen/bGooZmq */
-
-/* cute font https://fonts.google.com/specimen/Lilita+One?preview.text=LOST%20PAWS&preview.text_type=custom */
 :root {
   --teal: #38A3A5; /* define a CSS variable */
   --darkblue: #22577A; 

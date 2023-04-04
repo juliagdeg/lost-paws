@@ -1,7 +1,5 @@
 import { useEffect, useRef } from "react";
 
-// need to get the UploadWidget function into my create form and edit form
-
 export const UploadWidget = ({onUploadSuccess}) => {
     const cloudinaryRef = useRef();
     const widgetRef = useRef();
@@ -11,7 +9,6 @@ export const UploadWidget = ({onUploadSuccess}) => {
         widgetRef.current = cloudinaryRef.current.createUploadWidget({
             cloudName: 'dciy71glf',
             uploadPreset: 'petpics'
-            // publicId: setPublicId
         }, 
         function(error, result) {
             if (!error && result && result.event === "success") {

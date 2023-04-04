@@ -61,9 +61,8 @@ export const Pet = ( {petObject, owner, setPets} ) => {
                {
                     editButton()
                }
-               {/* <button>Found my Lost Paws?</button> */}
             </footer>
     </section>
     }
 
-    // need to place a conditional where contact only shows up on homepage posts
+  

@@ -61,8 +61,7 @@ export const PetForm = () => {
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-    // Do I have to use a new property that renders the image info in my API data?
-    // create publicId property for petdataAPI
+
 
     const petToSendToAPI = {
         name: pet.name,
@@ -74,7 +73,6 @@ export const PetForm = () => {
         dateLost: pet.dateLost,
         publicId: image
     }
-    // console.log(petToSendToAPI)
     return fetch (`http://localhost:8088/pets`, {
         method: "POST",
         headers: {
@@ -92,7 +90,7 @@ export const PetForm = () => {
     return (
         <div className="form_container">
             <h2 className="lostPetForm_title">Lost Pet Post</h2>
-            <section>Please fill out this form, upload a pet pic, and be as descriptive as PAWS-sible. 
+            <section className="pet_form_instructions">Please fill out this form, upload a pet pic, and be as descriptive as PAWS-sible. 
             We'll make sure your Lost Paws are found in no time!</section>
             <div>
                 <UploadWidget onUploadSuccess={
@@ -103,7 +101,7 @@ export const PetForm = () => {
             </div>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Pet Name:</label>
+                    <label className="name_label" htmlFor="name">Pet Name:</label>
                     <input
                         required autoFocus
                         type="text"
@@ -121,7 +119,7 @@ export const PetForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="type">Type of Pet:</label>
+                    <label className="dropdown_label" htmlFor="type">Type of Pet:</label>
                     <select value={pet.typeId} onChange={(event) => {
                         const copy = {...pet}
                         copy.typeId = event.target.value
@@ -143,7 +141,7 @@ export const PetForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="color">Color of Pet:</label>
+                    <label className="dropdown_label" htmlFor="color">Color of Pet:</label>
                     <select value={pet.colorId} onChange={(event) => {
                         const copy = {...pet}
                         copy.colorId = event.target.value
@@ -165,7 +163,7 @@ export const PetForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="size">Size of Pet:</label>
+                    <label className="dropdown_label" htmlFor="size">Size of Pet:</label>
                     <select value={pet.sizeId} onChange={(event) => {
                         const copy = {...pet}
                         copy.sizeId = event.target.value
@@ -187,7 +185,7 @@ export const PetForm = () => {
             </fieldset>
             <fieldset>
             <div className="form-group">
-                    <label htmlFor="description">Please list any additional details of your pet here:</label>
+                    <label className="description_label" htmlFor="description">Please list any additional details of your pet here:</label>
                     <textarea
                         required autoFocus
                         type="textarea"
@@ -205,7 +203,7 @@ export const PetForm = () => {
             </fieldset>
             <fieldset>
             <div className="form-group">
-                    <label htmlFor="date">When was your pet lost/last seen?</label>
+                    <label className="date_label" htmlFor="date">When was your pet lost/last seen?</label>
                     <input
                         required autoFocus
                         type="date"
